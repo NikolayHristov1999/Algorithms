@@ -11,10 +11,8 @@ namespace SortingAlgorithms.SortAlgos
     {
         public static void Sort(int[] arr)
         {
-
-            var heap = new Heap(arr);
+            var heap = new Heap(arr.ToList());
             arr = heap.Sort();
-
         }
         
 

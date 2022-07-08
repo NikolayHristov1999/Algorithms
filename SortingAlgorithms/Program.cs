@@ -1,4 +1,5 @@
 ﻿
+using DataStructures;
 using SortingAlgorithms.SortAlgos;
 using System;
 using System.Diagnostics;
@@ -7,14 +8,16 @@ namespace Algorithms
 {
     public class StartUp
     {
-        const int ARRAY_LENGTH = 1_000_000;
+        //If the array length is more than 10_000_000 remove count sort test
+        const int ARRAY_LENGTH = 10_000;
         static void Main(string[] args)
         {
+            
             int[] arr = CreateArray(ARRAY_LENGTH);
 
-            //RunSortAlgorithm(BubbleSort.Sort, arr, nameof(BubbleSort));
-            //RunSortAlgorithm(SelectionSort.Sort, arr, nameof(SelectionSort));
-            //RunSortAlgorithm(InsertionSort.Sort, arr, nameof(InsertionSort));
+            RunSortAlgorithm(BubbleSort.Sort, arr, nameof(BubbleSort));
+            RunSortAlgorithm(SelectionSort.Sort, arr, nameof(SelectionSort));
+            RunSortAlgorithm(InsertionSort.Sort, arr, nameof(InsertionSort));
             RunSortAlgorithm(MergeSort.Sort, arr, nameof(MergeSort));
             RunSortAlgorithm(QuickSort.Sort, arr, nameof(QuickSort));
             RunSortAlgorithm(RandomQuickSort.Sort, arr, nameof(RandomQuickSort));
@@ -22,10 +25,11 @@ namespace Algorithms
             RunSortAlgorithm(RadixSort.Sort, arr, nameof(RadixSort));
             RunSortAlgorithm(HeapSort.Sort, arr, nameof(HeapSort));
 
-            var list = arr.ToList();
+
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            list.Sort();
+            var output = arr.OrderBy(arr => arr);
+            
             stopwatch.Stop();
             Console.WriteLine($"Linq - time elapsed = {stopwatch.ElapsedMilliseconds} ms");
         }
@@ -47,17 +51,14 @@ namespace Algorithms
             for (int i = 0; i < length; i++)
             {
                 arr[i] = random.Next(0, ARRAY_LENGTH);
-                
+
             }
             return arr;
         }
 
         private static void PrintArray(int[] arr)
         {
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write(arr[i] + ", ");
-            }
+            Console.WriteLine(string.Join(", ", arr));
             Console.WriteLine();
         }
 
@@ -70,6 +71,20 @@ namespace Algorithms
             }
 
             return tmp;
+        }
+
+        private static void isSorted(int[] arr)
+        {
+            
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] < arr[i - 1])
+                {
+                    Console.WriteLine("Not sorted");
+                    return;
+                }
+            }
+            Console.WriteLine("Sorted");
         }
 
     }

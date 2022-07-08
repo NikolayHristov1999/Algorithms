@@ -8,12 +8,14 @@ namespace SortingAlgorithms
 {
     public class Heap
     {
-        public int[] _heap;
+        public List<int> HeapArr { get; set; }
 
-        public Heap(int[] arr)
+        public Heap(List<int> arr)
         {
-            _heap = arr;
+            HeapArr = arr;
         }
+
+        
 
         public int IndexOfParent(int currentIndex)
         {
@@ -50,12 +52,12 @@ namespace SortingAlgorithms
             int rightChildIndex = IndexOfRightChild(index);
             int largest = index;
 
-            if (leftChildIndex < size && _heap[leftChildIndex] > _heap[index])
+            if (leftChildIndex < size && HeapArr[leftChildIndex] > HeapArr[index])
             {
                 largest = leftChildIndex;
             }
 
-            if (rightChildIndex < size && _heap[rightChildIndex] > _heap[largest])
+            if (rightChildIndex < size && HeapArr[rightChildIndex] > HeapArr[largest])
             {
                 largest = rightChildIndex;
             }
@@ -63,13 +65,16 @@ namespace SortingAlgorithms
             //Swap the elements and call the function again if the largest index is not equal to index
             if (largest != index)
             {
-                var tmp = _heap[index];
-                _heap[index] = _heap[largest];
-                _heap[largest] = tmp;
+                var tmp = HeapArr[index];
+                HeapArr[index] = HeapArr[largest];
+                HeapArr[largest] = tmp;
                 MaxHeapify(largest, size);
             }
         }
-
+        /// <summary>
+        ///     Builds the max heap data structure
+        /// </summary>
+        /// <param name="size">The number of Elements</param>
         public void BuildMaxHeap(int size)
         {
             for (int i = IndexOfParent(size - 1); i >= 0; i--)
@@ -80,14 +85,14 @@ namespace SortingAlgorithms
 
         public int[] Sort()
         {
-            int size = _heap.Length;
-            var result = new int[_heap.Length];
+            int size = HeapArr.Count;
+            var result = new int[HeapArr.Count];
 
             BuildMaxHeap(size);
-            for (int i = _heap.Length - 1; i > 1; i--)
+            for (int i = HeapArr.Count - 1; i > 1; i--)
             {
-                result[i] = _heap[0];
-                _heap[0] = _heap[i];
+                result[i] = HeapArr[0];
+                HeapArr[0] = HeapArr[i];
                 size--;
                 MaxHeapify(0, size);
             }
