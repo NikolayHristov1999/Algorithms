@@ -19,8 +19,6 @@ namespace SortingAlgorithms.SortAlgos
         {
             
             int[] coppiedArray = (int[])arr.Clone();
-            //var stopwatch = new Stopwatch();
-            //stopwatch.Restart();
             Sort(coppiedArray, 0, coppiedArray.Length - 1);
 
             //stopwatch.Stop();

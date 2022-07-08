@@ -29,8 +29,6 @@ namespace SortingAlgorithms.SortAlgos
                 coppiedArray[indexOfMin] = coppiedArray[i];
                 coppiedArray[i] = tmp;
             }
-
-
         }
     }
 }

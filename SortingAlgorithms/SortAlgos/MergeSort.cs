@@ -17,8 +17,7 @@ namespace SortingAlgorithms.SortAlgos
         /// <param name="stopwatch"></param>
         public static void Sort(int[] arr)
         {
-            int[] coppiedArray = (int[])arr.Clone();
-            Sort(coppiedArray, 0, coppiedArray.Length - 1);
+            Sort(arr, 0, arr.Length - 1);
             //Uncomment to see the sorted array
             //Console.WriteLine(string.Join(", ",coppiedArray));
             //Console.WriteLine($"Merge sort - time elapsed = {stopwatch.ElapsedMilliseconds} ms");
@@ -75,13 +74,37 @@ namespace SortingAlgorithms.SortAlgos
         }
         private static void Sort(int[] arr, int left, int right)
         {
-            if (left < right)
+            if (right - left > 16)
             {
                 //Find the middle point
                 int middle = left + (right - left) / 2;
                 Sort(arr, left, middle);
                 Sort(arr, middle + 1, right);
                 Merge(arr, left, middle, right);
+            }
+            else 
+            { 
+                SelectionSort(arr, left, right);
+            }
+
+        }
+        public static void SelectionSort(int[] arr, int startIndex, int endIndex)
+        {
+            int length = endIndex - startIndex;
+            for (int i = 0; i < length - 1; i++)
+            {
+                int indexOfMin = startIndex;
+
+                for (int j = i + 1; j < length; j++)
+                {
+                    if (arr[startIndex] > arr[startIndex + j])
+                    {
+                        indexOfMin = j;
+                    }
+                }
+                int tmp = arr[indexOfMin];
+                arr[indexOfMin] = arr[i];
+                arr[i] = tmp;
             }
         }
     } 

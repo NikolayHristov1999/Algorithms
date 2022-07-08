@@ -9,15 +9,15 @@ namespace Algorithms
     public class StartUp
     {
         //If the array length is more than 10_000_000 remove count sort test
-        const int ARRAY_LENGTH = 10_000;
+        const int ARRAY_LENGTH = 10_000_000;
         static void Main(string[] args)
         {
             
             int[] arr = CreateArray(ARRAY_LENGTH);
 
-            RunSortAlgorithm(BubbleSort.Sort, arr, nameof(BubbleSort));
-            RunSortAlgorithm(SelectionSort.Sort, arr, nameof(SelectionSort));
-            RunSortAlgorithm(InsertionSort.Sort, arr, nameof(InsertionSort));
+            //RunSortAlgorithm(BubbleSort.Sort, arr, nameof(BubbleSort));
+            //RunSortAlgorithm(SelectionSort.Sort, arr, nameof(SelectionSort));
+            //RunSortAlgorithm(InsertionSort.Sort, arr, nameof(InsertionSort));
             RunSortAlgorithm(MergeSort.Sort, arr, nameof(MergeSort));
             RunSortAlgorithm(QuickSort.Sort, arr, nameof(QuickSort));
             RunSortAlgorithm(RandomQuickSort.Sort, arr, nameof(RandomQuickSort));
