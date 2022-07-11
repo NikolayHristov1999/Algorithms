@@ -19,13 +19,12 @@ namespace SortingAlgorithms.SortAlgos
         private static void Sort(int[] arr, int max)
         {
             int[] tmpArr = new int[max + 1];
-            int[] output = new int[arr.Length];
 
             for (int i = 0; i < arr.Length; i++)
             {
-                int tmp = arr[i];
-                tmpArr[tmp]++;
+                tmpArr[arr[i]]++;
             }
+
             int index = 0;
             for (int i = 0; i < tmpArr.Length; i++)
             {
@@ -36,21 +35,6 @@ namespace SortingAlgorithms.SortAlgos
                     index++;
                 }
             }
-            //for (int i = 1; i < tmpArr.Length; ++i)
-            //{
-            //    tmpArr[i] += tmpArr[i - 1];
-            //}
-
-            //for (int i = arr.Length - 1; i >= 0; i--)
-            //{
-            //    output[tmpArr[arr[i]] - 1] = arr[i];
-            //    --tmpArr[arr[i]];
-            //}
-
-            //for (int i = 0; i < arr.Length; i++)
-            //{
-            //    arr[i] = output[i];
-            //}
         }
     }
 }

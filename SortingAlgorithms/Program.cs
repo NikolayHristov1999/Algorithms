@@ -9,7 +9,7 @@ namespace Algorithms
     public class StartUp
     {
         //If the array length is more than 10_000_000 remove count sort test
-        const int ARRAY_LENGTH = 10_000_000;
+        const int ARRAY_LENGTH = 1_000_000;
         static void Main(string[] args)
         {
             
@@ -24,11 +24,11 @@ namespace Algorithms
             RunSortAlgorithm(CountingSort.Sort, arr, nameof(CountingSort));
             RunSortAlgorithm(RadixSort.Sort, arr, nameof(RadixSort));
             RunSortAlgorithm(HeapSort.Sort, arr, nameof(HeapSort));
-
+            RunBucketSort();
 
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            var output = arr.OrderBy(arr => arr);
+            arr.OrderBy(x => x);
             
             stopwatch.Stop();
             Console.WriteLine($"Linq - time elapsed = {stopwatch.ElapsedMilliseconds} ms");
@@ -42,6 +42,24 @@ namespace Algorithms
             stopwatch.Stop();
             Console.WriteLine($"{name} - time elapsed = {stopwatch.ElapsedMilliseconds} ms");
 
+        }
+
+        private static void RunBucketSort()
+        {
+            var stopwatch = new Stopwatch();
+            
+            
+            
+            var random = new Random();
+            var arr = new double[ARRAY_LENGTH];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = random.NextDouble();
+            }
+            stopwatch.Start();
+            BucketSort.Sort(arr, 10);
+            stopwatch.Stop();
+            Console.WriteLine($"BucketSort - time elapsed = {stopwatch.ElapsedMilliseconds} ms");
         }
 
         private static int[] CreateArray(int length)
