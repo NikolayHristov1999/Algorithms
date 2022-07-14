@@ -14,6 +14,9 @@ namespace SortingAlgorithms.SortAlgos
         ///     Sorts array arr where arr[i] >= 0 && arr[i] < 1
         /// </summary>
         /// <param name="arr"></param>
+        /// <param name="floatingPointSize">
+        /// the size of the bucket arr(numbers after the floating point used to store)
+        /// </param>
         public static void Sort(double[] arr, int floatingPointSize)
         {
             var bucketArr = new List<double>[floatingPointSize];

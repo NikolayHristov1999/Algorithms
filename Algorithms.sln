@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingAlgorithms", "SortingAlgorithms\SortingAlgorithms.csproj", "{088DE3C1-A39D-4266-8901-0BA43EF78E5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortingAlgorithms", "SortingAlgorithms\SortingAlgorithms.csproj", "{088DE3C1-A39D-4266-8901-0BA43EF78E5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures\DataStructures.csproj", "{F05F9A54-388F-41B5-8819-DC1D71DBE775}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructures", "DataStructures\DataStructures.csproj", "{F05F9A54-388F-41B5-8819-DC1D71DBE775}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderStatistics", "OrderStatistics\OrderStatistics.csproj", "{B0D489AF-A89C-4068-BAD9-1F9D8E951857}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F05F9A54-388F-41B5-8819-DC1D71DBE775}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F05F9A54-388F-41B5-8819-DC1D71DBE775}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F05F9A54-388F-41B5-8819-DC1D71DBE775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0D489AF-A89C-4068-BAD9-1F9D8E951857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0D489AF-A89C-4068-BAD9-1F9D8E951857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0D489AF-A89C-4068-BAD9-1F9D8E951857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0D489AF-A89C-4068-BAD9-1F9D8E951857}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
